@@ -1,4 +1,12 @@
 const apiMail = `https://flynn.boolean.careers/exercises/api/random/mail`;
+const emailContainer = document.getElementById("email-container");
+
+const generateEmailSection = (email) => {
+  return `
+      <li class="p-3">${email}</li>
+  `;
+};
+
 function getEmailArray() {
   const emailArray = [];
   console.log("PRIMA DEL FOR");
@@ -8,9 +16,11 @@ function getEmailArray() {
 
       if (emailArray.length === 10) {
         console.table(emailArray);
+        let emailHtml = ``;
         emailArray.forEach((email) => {
-          // GENERA HTML
+          emailHtml += generateEmailSection(email);
         });
+        emailContainer.innerHTML = emailHtml;
       }
     });
   }
