@@ -9,12 +9,11 @@ const generateEmailSection = (email) => {
 
 function getEmailArray() {
   const emailArray = [];
-  console.log("PRIMA DEL FOR");
   for (i = 0; i < 10; i++) {
     axios.get(apiMail).then((response) => {
       emailArray.push(response.data.response);
 
-      if (emailArray.length === 10) {
+      if (emailArray.length >= 10) {
         console.table(emailArray);
         let emailHtml = ``;
         emailArray.forEach((email) => {
